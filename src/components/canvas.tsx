@@ -268,10 +268,18 @@ const Canvas = () => {
       }
     }
 
-    const startCoords = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
+    let startCoords = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
     let goalCoords = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
 
-    if (startCoords[0] === goalCoords[0] && startCoords[1] === goalCoords[1]) {
+    while (startCoords[0] === goalCoords[0] && startCoords[1] === goalCoords[1]) {
+      goalCoords = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
+    }
+
+    while (!grid.current.find(c => c[0] === startCoords[0] && c[1] === startCoords[1])) {
+      startCoords = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
+    }
+
+    while (!grid.current.find(c => c[0] === goalCoords[0] && c[1] === goalCoords[1])) {
       goalCoords = [Math.floor(Math.random() * 10), Math.floor(Math.random() * 10)];
     }
 
