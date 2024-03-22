@@ -313,6 +313,12 @@ const Canvas = () => {
     for (let i = 0; i < randomBlockers; i++) {
       const randomX = Math.floor(Math.random() * 10);
       const randomY = Math.floor(Math.random() * 10);
+      if (startCoords[0] === randomX && startCoords[1] === randomY) {
+        continue;
+      }
+      if (goalCoords[0] === randomX && goalCoords[1] === randomY) {
+        continue;
+      }
       const blocker = new Circle({
         name: '',
         fill: 'red',
