@@ -308,7 +308,7 @@ const Canvas = () => {
 
     layerRef.current?.add(finish);
 
-    const randomBlockers = Math.floor(Math.random() * 20) + 10;
+    const randomBlockers = Math.floor(Math.random() * 20) + 30;
 
     for (let i = 0; i < randomBlockers; i++) {
       const randomX = Math.floor(Math.random() * 10);
